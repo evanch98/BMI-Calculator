@@ -60,7 +60,10 @@ def calculate():
             bmi_entry.insert(0, text)
     except ValueError:
         bmi_entry.delete(0, END)
-        bmi_entry.insert(0, "Error")
+        bmi_entry.insert(0, "Invalid value.")
+    except ZeroDivisionError:
+        bmi_entry.delete(0, END)
+        bmi_entry.insert(0, "Height cannot be zero.")
 
 def clear():
     """Clears the text in the entry boxes."""
